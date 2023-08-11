@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential Diagram with Fabric.js</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+    <!-- Include Fabric.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <!-- Include your lib files -->
+    <script src="./lib/actorWithLifeline.js"></script>
+    <script src="./lib/classWithLifeline.js"></script>
+    <script src="./lib/combinedFragment.js"></script>
+    <script src="./lib/note.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="1200" height="800"></canvas>
+    <script>
+       let canvas = new fabric.Canvas('canvas', { preserveObjectStacking: true });
+        new CombinedFragment(canvas, { x: 50, y: 50 });
+        new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
+        new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
+        new Note(canvas, { x: 300, y: 200 });
+      
+
+    </script>
+</body>
+
+</html>
