@@ -1,0 +1,62 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+nav {
+    background-color: #333;
+    padding: 0.5rem 1rem;
+
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav li a:hover {
+    background-color: #555;
+}
+
+.content {
+    display: flex;
+}
+
+.toolbar {
+    align-items: left;
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    position: sticky;
+ 
+    
+    
+}
+
+.btn {
+    width: 100px;
+    height: 100px;
+
+}
+
+canvas {
+    width: 1000px;  /* Increased canvas size */
+    height: 800px; /* Increased canvas size */
+    border: 1px solid #000;
+}
+
+
