@@ -2,13 +2,12 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    height: 100%;
 }
 
 nav {
     background-color: #333;
     padding: 0.5rem 1rem;
-
+    position: sticky;
 }
 
 nav ul {
@@ -33,30 +32,41 @@ nav li a:hover {
 
 .content {
     display: flex;
+    justify-content: space-between;
 }
+
 
 .toolbar {
     align-items: left;
-    width: 300px;
+    width: 200px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    border: 1px solid #000;
+
+    height: 400px;
+    position: -webkit-sticky;
     position: sticky;
- 
-    
+    top: 0;
     
 }
 
 .btn {
     width: 100px;
     height: 100px;
-
 }
 
 canvas {
-    width: 1000px;  /* Increased canvas size */
-    height: 800px; /* Increased canvas size */
     border: 1px solid #000;
+    height: auto;
+    width: auto;
+}
+
+.canvas_container{
+    border: 1px solid #000;
+    width: 75%;
+    height: 150vh;
+    margin: auto;
 }
 
 
