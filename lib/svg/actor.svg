@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="27 10 150 170" xml:space="preserve">
+<desc>Created with Fabric.js 4.5.0</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 88.75 65.34)"  >
+<g style=""   >
+		<g transform="matrix(1 0 0 1 -0.5 -39)"  >
+<circle style="stroke: rgb(0,0,0); stroke-width: 2.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(173,216,230); fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="14" />
+</g>
+		<g transform="matrix(1 0 0 1 0 -4.38)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 3.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="0" y1="-21.875" x2="0" y2="21.875" />
+</g>
+		<g transform="matrix(1 0 0 1 -8.75 35)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 3.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="8.75" y1="-17.5" x2="-8.75" y2="17.5" />
+</g>
+		<g transform="matrix(1 0 0 1 8.75 35)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 3.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="-8.75" y1="-17.5" x2="8.75" y2="17.5" />
+</g>
+		<g transform="matrix(1 0 0 1 -8.75 -8.75)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 3.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="8.75" y1="-8.75" x2="-8.75" y2="8.75" />
+</g>
+		<g transform="matrix(1 0 0 1 8.75 -8.75)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 3.5; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="-8.75" y1="-8.75" x2="8.75" y2="8.75" />
+</g>
+</g>
+</g>
+<g transform="matrix(1 0 0 1 77.25 135.56)" style=""  >
+		<text xml:space="preserve" font-family="Times New Roman" font-size="25" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-17.08" y="4.71" >Actor</tspan></text>
+</g>
+<g transform="matrix(1 0 0 1 89.75 166.31)"  >
+<line style="stroke: rgb(0,0,0); stroke-width: 2; stroke-dasharray: 5 5; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="0" y1="-19.775000000000006" x2="0" y2="2.775000000000006" />
+</g>
+</svg>

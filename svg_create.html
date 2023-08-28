@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential Diagram with Fabric.js</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+    <!-- Include Fabric.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <!-- Include your lib files -->
+    <script src="./lib/actorWithLifeline.js"></script>
+    <script src="./lib/classWithLifeline.js"></script>
+    <script src="./lib/combinedFragment.js"></script>
+    <script src="./lib/note.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <button onclick="SaveSVG()">SAVE as SVG</button>
+    <script>
+       let canvas = new fabric.Canvas('canvas', { preserveObjectStacking: true });
+        //new CombinedFragment(canvas, { x: 5, y: 5 });
+        ActorWithLifeline = new ActorWithLifeline(canvas, 'Actor', { x: 20, y: 20 });
+        //var classWithLifeline = new ClassWithLifeline(canvas, 'Class', { x: 50, y: 50 });
+        //classWithLifeline.rect.set({height: 25, width: 100})
+        //new Note(canvas, { x: 5, y: 5 });
+
+
+        function SaveSVG()
+        {
+            var svgCanvas = canvas.toSVG();
+            var myFile = new File([svgCanvas], "demo.txt", {type: "text/plain;charset=utf-8"});
+            saveAs(myFile);
+        }
+    </script>
+</body>
+
+</html>

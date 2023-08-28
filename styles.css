@@ -36,15 +36,16 @@ nav li a:hover {
 }
 
 
+
 .toolbar {
     align-items: left;
-    width: 200px;
+    width: 318px;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     border: 1px solid #000;
 
-    height: 400px;
+    height: 600px;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -54,9 +55,11 @@ nav li a:hover {
 .btn {
     width: 100px;
     height: 100px;
+    text-align: center;
+    margin: 3px 3px;
 }
 
-canvas {
+#myCanvas {
     border: 1px solid #000;
     height: 100%;
     width: 100%;
@@ -68,5 +71,6 @@ canvas {
     height: 150vh;
     margin: auto;
 }
+
 
 

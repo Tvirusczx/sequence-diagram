@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <script src="./lib/actorWithLifeline.js"></script>
+    <script src="./lib/classWithLifeline.js"></script>
+    <script src="./lib/combinedFragment.js"></script>
+    <script src="./lib/note.js"></script>
     <title>Canvas App</title>
 </head>
 <body>
@@ -11,26 +16,45 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Import</a></li>
+            <li><a href="#">Export</a></li>
+            <li><a href="#">Save</a></li>
+            <li><a href="#">Undo</a></li>
+            <li><a href="#">Redo</a></li>
+            <li><a href="#">Clear</a></li>
         </ul>
     </nav>
     
     <div class="content">
         <div class="toolbar">
-            <button class="btn">Button 1</button>
-            <button class="btn">Button 2</button>
-            <button class="btn">Button 3</button>
-            <button class="btn">Button 4</button>
-            <button class="btn">Button 5</button>
-            <button class="btn">Button 6</button>
-            <button class="btn">Button 7</button>
+            <button class="btn"><img src="./lib/svg/sdFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/optFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/altFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/parFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/refFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/loopFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/criticalFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/negFragment.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/note.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/class.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/actor.svg" draggable="false" ></button>
             <button class="btn">Button 8</button>
         </div>
-        <div class="canvas_container">
+        <div class="canvas_container" id="canvas_container">
             <canvas id="myCanvas"></canvas>
         </div>
         
     </div>
+
+    <script>
+        let canvas = new fabric.Canvas('myCanvas', { preserveObjectStacking: true });
+        canvas.setHeight(document.getElementById("canvas_container").clientHeight);
+        canvas.setWidth(document.getElementById("canvas_container").clientWidth);
+         new CombinedFragment(canvas, { x: 50, y: 50 });
+         new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
+         new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
+         new Note(canvas, { x: 300, y: 200 });
+     </script>
+
 </body>
 </html>
