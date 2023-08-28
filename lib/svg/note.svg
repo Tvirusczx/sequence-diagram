@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100" height="100" viewBox="7 0 100 100" xml:space="preserve">
+<desc>Created with Fabric.js 4.5.0</desc>
+<defs>
+</defs>
+<g transform="matrix(0.57 0 0 0.57 50.02 45.57)"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(173,216,230); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-80, -55)" d="M 5 5 L 120.14601858305568 5 L 155 39.853981416944315 L 155 105 L 5 105 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 83.05 26.88)"  >
+<path style="stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;"  transform=" translate(-145, -15)" d="M 135 5 L 135 25 L 155 25 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 71.98 30.36)" style=""  >
+		<text xml:space="preserve" font-family="Times New Roman" font-size="15" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-60" y="4.71" >Note</tspan></text>
+</g>
+</svg>
