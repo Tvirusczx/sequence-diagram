@@ -27,19 +27,19 @@
     
     <div class="content">
         <div class="toolbar">
-            <button class="btn"><img src="./lib/svg/class.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/actor.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/class.svg" draggable="true" ondragend="handleDragEnd(event,'class')"></button>
+            <button class="btn"><img src="./lib/svg/actor.svg" draggable="true" ondragend="handleDragEnd(event,'actor')"></button>
             <button class="btn">Message</button>
             <button class="btn">Activation box</button>
-            <button class="btn"><img src="./lib/svg/sdFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/optFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/altFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/parFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/refFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/loopFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/criticalFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/negFragment.svg" draggable="false" ></button>
-            <button class="btn"><img src="./lib/svg/note.svg" draggable="false" ></button>
+            <button class="btn"><img src="./lib/svg/sdFragment.svg" draggable="true" ondragend="handleDragEnd(event,'sd')"></button>
+            <button class="btn"><img src="./lib/svg/optFragment.svg" draggable="true" ondragend="handleDragEnd(event,'opt')"></button>
+            <button class="btn"><img src="./lib/svg/altFragment.svg" draggable="true" ondragend="handleDragEnd(event,'alt')"></button>
+            <button class="btn"><img src="./lib/svg/parFragment.svg" draggable="true" ondragend="handleDragEnd(event,'par')"></button>
+            <button class="btn"><img src="./lib/svg/refFragment.svg" draggable="true" ondragend="handleDragEnd(event,'ref')"></button>
+            <button class="btn"><img src="./lib/svg/loopFragment.svg" draggable="true" ondragend="handleDragEnd(event,'loop')"></button>
+            <button class="btn"><img src="./lib/svg/criticalFragment.svg" draggable="true" ondragend="handleDragEnd(event,'critical')"></button>
+            <button class="btn"><img src="./lib/svg/negFragment.svg" draggable="true" ondragend="handleDragEnd(event,'neg')"></button>
+            <button class="btn"><img src="./lib/svg/note.svg" draggable="true" ondragend="handleDragEnd(event,'note')" ></button>
             <button class="btn">Button 8</button>
         </div>
         <div class="canvas_container" id="canvas_container">
@@ -49,13 +49,70 @@
     </div>
 
     <script>
-        let canvas = new fabric.Canvas('myCanvas', { preserveObjectStacking: true });
+        let canvas = new fabric.Canvas('myCanvas', { preserveObjectStacking: true, selection: false });
         canvas.setHeight(document.getElementById("canvas_container").clientHeight);
         canvas.setWidth(document.getElementById("canvas_container").clientWidth);
-         new CombinedFragment(canvas, { x: 50, y: 50 });
-         new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
-         new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
-         new Note(canvas, { x: 300, y: 200 });
+        
+        /*
+        new CombinedFragment(canvas,'otp', { x: 50, y: 50 });
+        new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
+        new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
+        new Note(canvas, { x: 300, y: 200 });
+        */
+
+
+         function handleDragEnd(event,object) {
+            const cElement = document.getElementById('myCanvas');
+            const rect = cElement.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                
+                switch(object) {
+                    case 'class':
+                        new ClassWithLifeline(canvas, 'Class', { x: x, y: y });
+                        break;
+                    case 'actor':
+                        new ActorWithLifeline(canvas, 'User', { x: x, y: y });
+                        break;
+                    case 'opt':
+                        new CombinedFragment(canvas,'otp' ,{ x: x, y: y });
+                        break;
+                    case 'alt':
+                        new CombinedFragment(canvas,'alt' ,{ x: x, y: y });
+                        break;
+                    case 'sd':
+                        new CombinedFragment(canvas,'sd' ,{ x: x, y: y });
+                        break;
+                    case 'neg':
+                        new CombinedFragment(canvas,'neg' ,{ x: x, y: y });
+                        break;
+                    case 'par':
+                        new CombinedFragment(canvas,'par' ,{ x: x, y: y });
+                        break;
+                    case 'loop':
+                        new CombinedFragment(canvas,'loop' ,{ x: x, y: y });
+                        break;
+                    case 'critical':
+                        new CombinedFragment(canvas,'critical' ,{ x: x, y: y });
+                        break;
+                    case 'ref':
+                        new CombinedFragment(canvas,'ref' ,{ x: x, y: y });
+                        break;
+                    case 'note':
+                        new Note(canvas, { x: x, y: y });
+                        break;
+                    default:
+                        // code block
+                }
+
+            }
+        }
+
+
+
+
      </script>
 
 </body>
