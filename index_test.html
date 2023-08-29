@@ -9,6 +9,7 @@
     <script src="./lib/classWithLifeline.js"></script>
     <script src="./lib/combinedFragment.js"></script>
     <script src="./lib/note.js"></script>
+    <script src="./lib/message.js"></script>
     <title>Canvas App</title>
 </head>
 <body>
@@ -58,7 +59,12 @@
         new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
         new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
         new Note(canvas, { x: 300, y: 200 });
-        */
+         */
+        let startPosition = { x: 300, y: 100 };
+        let endPosition = { x: 500, y: 100 };
+
+        let newMessage = new Message(canvas, startPosition, endPosition);
+       
 
 
          function handleDragEnd(event,object) {
