@@ -19,6 +19,7 @@
     <script src="./lib/combinedFragment.js"></script>
     <script src="./lib/note.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="./lib/message.js"></script>
 </head>
 
 <body>
@@ -27,10 +28,15 @@
     <script>
        let canvas = new fabric.Canvas('canvas', { preserveObjectStacking: true });
         //new CombinedFragment(canvas, { x: 5, y: 5 });
-        ActorWithLifeline = new ActorWithLifeline(canvas, 'Actor', { x: 20, y: 20 });
+        //ActorWithLifeline = new ActorWithLifeline(canvas, 'Actor', { x: 20, y: 20 });
         //var classWithLifeline = new ClassWithLifeline(canvas, 'Class', { x: 50, y: 50 });
         //classWithLifeline.rect.set({height: 25, width: 100})
         //new Note(canvas, { x: 5, y: 5 });
+
+        let startPosition = { x: 5, y: 5 };
+        let endPosition = { x: 90, y: 5 };
+
+        let newMessage = new Message(canvas, startPosition, endPosition);
 
 
         function SaveSVG()

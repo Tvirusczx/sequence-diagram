@@ -22,7 +22,7 @@
             <li><a href="#">Save</a></li>
             <li><a href="#">Undo</a></li>
             <li><a href="#">Redo</a></li>
-            <li><a href="#">Clear</a></li>
+            <li><a  onclick="clearCanvas()">Clear</a></li>
         </ul>
     </nav>
     
@@ -30,7 +30,7 @@
         <div class="toolbar">
             <button class="btn"><img src="./lib/svg/class.svg" draggable="true" ondragend="handleDragEnd(event,'class')"></button>
             <button class="btn"><img src="./lib/svg/actor.svg" draggable="true" ondragend="handleDragEnd(event,'actor')"></button>
-            <button class="btn">Message</button>
+            <button class="btn"><img src="./lib/svg/message.svg" draggable="true" ondragend="handleDragEnd(event,'message')"></button>
             <button class="btn">Activation box</button>
             <button class="btn"><img src="./lib/svg/sdFragment.svg" draggable="true" ondragend="handleDragEnd(event,'sd')"></button>
             <button class="btn"><img src="./lib/svg/optFragment.svg" draggable="true" ondragend="handleDragEnd(event,'opt')"></button>
@@ -54,18 +54,22 @@
         canvas.setHeight(document.getElementById("canvas_container").clientHeight);
         canvas.setWidth(document.getElementById("canvas_container").clientWidth);
         
-        /*
+        /* DEMO
         new CombinedFragment(canvas,'otp', { x: 50, y: 50 });
         new ActorWithLifeline(canvas, 'User', { x: 300, y: 50 });
         new ClassWithLifeline(canvas, 'System', { x: 400, y: 50 });
         new Note(canvas, { x: 300, y: 200 });
-         */
+        
         let startPosition = { x: 300, y: 100 };
         let endPosition = { x: 500, y: 100 };
 
         let newMessage = new Message(canvas, startPosition, endPosition);
-       
-
+        */
+        function clearCanvas()
+        {
+            canvas.clear();
+            canvas.renderAll();
+        }
 
          function handleDragEnd(event,object) {
             const cElement = document.getElementById('myCanvas');
@@ -108,6 +112,9 @@
                         break;
                     case 'note':
                         new Note(canvas, { x: x, y: y });
+                        break;
+                    case 'message':
+                        new Message(canvas, { x: x, y: y }, { x: x + 200, y: y });
                         break;
                     default:
                         // code block
