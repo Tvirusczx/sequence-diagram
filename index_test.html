@@ -17,8 +17,8 @@
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Import</a></li>
-            <li><a href="#">Export</a></li>
+            <li><a href="#" onclick="importCanvas()">Import</a></li>
+            <li><a href="#" onclick="exportCanvas()">Export</a></li>
             <li><a href="#" onclick="saveCanvasAsImage()">Save Image</a></li>
             <li><a href="#">Undo</a></li>
             <li><a href="#">Redo</a></li>
@@ -53,6 +53,8 @@
         let canvas = new fabric.Canvas('myCanvas', { preserveObjectStacking: true, selection: false,backgroundColor:'white' });
         canvas.setHeight(document.getElementById("canvas_container").clientHeight);
         canvas.setWidth(document.getElementById("canvas_container").clientWidth);
+
+        var canvasJsonLastExported;
         
         /* DEMO
         new CombinedFragment(canvas,'otp', { x: 50, y: 50 });
@@ -79,6 +81,15 @@
             });
             
             downloadImage(dataURL, 'canvas_image.png');
+        }
+
+        function exportCanvas(){
+            canvasJsonLastExported = JSON.stringify(canvas);
+            console.log(canvas.toObject())
+        }
+
+        function importCanvas(){
+            canvas.loadFromJSON(canvasJsonLastExported)
         }
 
         function downloadImage(dataURL, filename) {
