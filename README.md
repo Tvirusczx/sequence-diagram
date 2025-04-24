@@ -69,7 +69,7 @@ The application uses **[fabric.js](http://fabricjs.com/)**, a powerful HTML5 can
 
 ## 📄 License
 
-MIT License — see the [LICENSE](LICENSE) file.
+MIT License.
 
 ---
 
