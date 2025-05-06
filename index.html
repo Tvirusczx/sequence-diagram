@@ -1,58 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
-    <script src="./lib/diagramElement.js"></script>
-    <script src="./lib/elementWithLifeline.js"></script>
-    <script src="./lib/actorWithLifeline.js"></script>
-    <script src="./lib/classWithLifeline.js"></script>
-    <script src="./lib/combinedFragment.js"></script>
-    <script src="./lib/note.js"></script>
-    <script src="./lib/message.js"></script>
-    <script src="./lib/app.js" defer></script> <!-- defer to load after html-->
-    <title>Canvas App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sequence Diagram Editor</title>
+  <link rel="stylesheet" href="styles.css" />
+    <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js" defer></script>
+
+  <!-- Internal Scripts (loaded in order) -->
+  <script type="module" src="./lib/app.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#" onclick="importCanvas()">Import</a></li>
-            <li><a href="#" onclick="exportCanvas()">Export</a></li>
-            <li><a href="#" onclick="importCanvasFile()">Import File</a></li>
-            <li><a href="#" onclick="exportCanvasFile()">Export File</a></li>
-            <li><a href="#" onclick="saveCanvasAsImage()">Save Image</a></li>
-            <li><a href="#" onclick="undo()">Undo</a></li>
-            <li><a href="#" onclick="redo()">Redo</a></li>
-            <li><a  onclick="clearCanvas()">Clear</a></li>
-        </ul>
+  <header class="header">
+    <div class="logo">⚙️ SeqEditor</div>
+    <nav class="toolbar-main">
+        <button id="btnImport">Import</button>
+        <button id="btnExport">Export</button>
+        <button id="btnImportFile">Import File</button>
+        <button id="btnExportFile">Export File</button>
+        <button id="btnSaveImage">Save Image</button>
+        <button id="btnUndo">Undo</button>
+        <button id="btnRedo">Redo</button>
+        <button id="btnClear">Clear</button>
     </nav>
+  </header>
+
+  <div class="editor-layout">
+    <aside class="sidebar">
+      <h2>Elements</h2>
+      <div class="toolbar-elements">
+        <button class="btn" aria-label="Add Class">
+            <img src="./lib/svg/class.svg" draggable="true" data-type="Class" alt="Class" />
+          </button>
+          <button class="btn" aria-label="Add Actor">
+            <img src="./lib/svg/actor.svg" draggable="true" data-type="Actor" alt="Actor" />
+          </button>
+          <button class="btn" aria-label="Add Message">
+            <img src="./lib/svg/message.svg" draggable="true" data-type="Message" alt="Message" />
+          </button>
     
-    <div class="content">
-        <div class="toolbar">
-            <button class="btn"><img src="./lib/svg/class.svg" draggable="true" ondragend="handleDragEnd(event,'class')"></button>
-            <button class="btn"><img src="./lib/svg/actor.svg" draggable="true" ondragend="handleDragEnd(event,'actor')"></button>
-            <button class="btn"><img src="./lib/svg/message.svg" draggable="true" ondragend="handleDragEnd(event,'message')"></button>
-            <!--<button class="btn">Activation box</button>-->
-            <button class="btn"><img src="./lib/svg/sdFragment.svg" draggable="true" ondragend="handleDragEnd(event,'sd')"></button>
-            <button class="btn"><img src="./lib/svg/optFragment.svg" draggable="true" ondragend="handleDragEnd(event,'opt')"></button>
-            <button class="btn"><img src="./lib/svg/altFragment.svg" draggable="true" ondragend="handleDragEnd(event,'alt')"></button>
-            <button class="btn"><img src="./lib/svg/parFragment.svg" draggable="true" ondragend="handleDragEnd(event,'par')"></button>
-            <button class="btn"><img src="./lib/svg/refFragment.svg" draggable="true" ondragend="handleDragEnd(event,'ref')"></button>
-            <button class="btn"><img src="./lib/svg/loopFragment.svg" draggable="true" ondragend="handleDragEnd(event,'loop')"></button>
-            <button class="btn"><img src="./lib/svg/criticalFragment.svg" draggable="true" ondragend="handleDragEnd(event,'critical')"></button>
-            <button class="btn"><img src="./lib/svg/negFragment.svg" draggable="true" ondragend="handleDragEnd(event,'neg')"></button>
-            <button class="btn"><img src="./lib/svg/note.svg" draggable="true" ondragend="handleDragEnd(event,'note')" ></button>
-            <!--<button class="btn">Button 8</button>-->
-        </div>
-        <div class="canvas_container" id="canvas_container">
+          <!-- Fragments -->
+          <button class="btn" aria-label="sd Fragment">
+            <img src="./lib/svg/sdFragment.svg" draggable="true" data-type="sd" alt="sd Fragment" />
+          </button>
+          <button class="btn" aria-label="opt Fragment">
+            <img src="./lib/svg/optFragment.svg" draggable="true" data-type="opt" alt="opt Fragment" />
+          </button>
+          <button class="btn" aria-label="alt Fragment">
+            <img src="./lib/svg/altFragment.svg" draggable="true" data-type="alt" alt="alt Fragment" />
+          </button>
+          <button class="btn" aria-label="par Fragment">
+            <img src="./lib/svg/parFragment.svg" draggable="true" data-type="par" alt="par Fragment" />
+          </button>
+          <button class="btn" aria-label="ref Fragment">
+            <img src="./lib/svg/refFragment.svg" draggable="true" data-type="ref" alt="ref Fragment" />
+          </button>
+          <button class="btn" aria-label="loop Fragment">
+            <img src="./lib/svg/loopFragment.svg" draggable="true" data-type="loop" alt="loop Fragment" />
+          </button>
+          <button class="btn" aria-label="critical Fragment">
+            <img src="./lib/svg/criticalFragment.svg" draggable="true" data-type="critical" alt="critical Fragment" />
+          </button>
+          <button class="btn" aria-label="neg Fragment">
+            <img src="./lib/svg/negFragment.svg" draggable="true" data-type="neg" alt="neg Fragment" />
+          </button>
+          <button class="btn" aria-label="Note">
+            <img src="./lib/svg/note.svg" draggable="true" data-type="note" alt="Note" />
+          </button>
+      </div>
+    </aside>
+
+    <div class="workspace" id="workspace">
+        <div class="zoom-container" id="zoomContainer">
+          <div class="canvas_container" id="canvas_container">
             <canvas id="myCanvas"></canvas>
+          </div>
         </div>
-        
     </div>
+
+    <section class="properties-panel">
+      <h2>Properties</h2>
+      <div class="properties-content">
+        <p>Select a diagram element to edit its properties.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 Sequence Diagram Editor by Filip Čehovský</p>
+  </footer>
+
+<!--
+  <script>
+let zoomLevel = 1;
+
+workspace.addEventListener('wheel', (e) => {
+  if (e.ctrlKey) {
+    e.preventDefault(); // Stop default browser zoom
+    zoomLevel += e.deltaY * -0.001;
+    zoomLevel = Math.min(Math.max(zoomLevel, 0.2), 4); // Clamp between 0.2 and 4
+    zoomContainer.style.transform = `scale(${zoomLevel})`;
+    console.log('called Zooming in html code');
+  }
+}, { passive: false });
+
+  </script>
+-->
 
 
 </body>
